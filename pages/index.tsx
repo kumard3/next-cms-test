@@ -23,12 +23,10 @@ export default function Home({ res }: any) {
     </div>
   );
 }
-
 export const getServerSideProps: GetServerSideProps = async () => {
-  const result = await fetch("https://astroyantra.com/wp-json/wp/v2/posts/");
+  const result = await fetch(`https://astroyantra.com/wp-json/wp/v2/posts/`);
   const res = await result.json();
 
-  return {
-    props: res,
-  };
-};
+  return { props: { res  }}
+}
+
