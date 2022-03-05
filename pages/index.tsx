@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/link-passhref */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { GetServerSideProps, NextPage } from "next";
 
 
 export default function Home() {
@@ -23,10 +24,9 @@ export default function Home() {
         Remix Basic Data fetching{" "}
       </h1>
       <div className="grid justify-center flex-col items-center  ">
-        {data?.map((n: any) => {
+        {data?.map((n: any,index) => {
           return (
-            <div>
-  
+            <div key={index}>
               <main dangerouslySetInnerHTML={{ __html: n.content.rendered }} />
             </div>
           );
@@ -35,4 +35,3 @@ export default function Home() {
     </div>
   );
 }
-
